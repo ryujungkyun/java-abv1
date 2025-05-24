@@ -1,7 +1,5 @@
 package thread.start.test;
 
-import javax.swing.text.TabableView;
-
 import static util.MyLogger.log;
 
 public class StartTest4Main {
