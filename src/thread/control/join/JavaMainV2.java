@@ -3,7 +3,7 @@ package thread.control.join;
 import static util.MyLogger.log;
 import static util.ThreadUtils.sleep;
 
-public class JavaMainV1 {
+public class JavaMainV2 {
 
     public static void main(String[] args) {
         log("start");
@@ -13,6 +13,7 @@ public class JavaMainV1 {
         Thread thread2 = new Thread(task2, "thread-2");
         thread1.start();
         thread2.start();
+        sleep(6000);
         System.out.println("task1.result = " + task1.result);
         System.out.println("task2.result = " + task2.result);
 
