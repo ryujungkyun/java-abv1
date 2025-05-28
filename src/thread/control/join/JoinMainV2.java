@@ -3,7 +3,7 @@ package thread.control.join;
 import static util.MyLogger.log;
 import static util.ThreadUtils.sleep;
 
-public class JavaMainV2 {
+public class JoinMainV2 {
 
     public static void main(String[] args) {
         log("start");
@@ -11,11 +11,17 @@ public class JavaMainV2 {
         SumTask task2 = new SumTask(51, 100);
         Thread thread1 = new Thread(task1, "thread-1");
         Thread thread2 = new Thread(task2, "thread-2");
+
         thread1.start();
         thread2.start();
-        sleep(6000);
-        System.out.println("task1.result = " + task1.result);
-        System.out.println("task2.result = " + task2.result);
+
+        //정확한 타이밍을 맞추어 기다리기 어려움
+        log("main 스레드 sleep()");
+        sleep(3000);
+        log("main 스레드 깨어남");
+
+        log("task1.result = " + task1.result);
+        log("task2.result = " + task2.result);
 
         int sumAll = task1.result + task2.result;
         log("task1 + task2 = " + sumAll);
